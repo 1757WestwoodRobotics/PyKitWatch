@@ -1,6 +1,6 @@
 [project]
 name = "robotpy-pykit-watch"
-version = "0.1.0"
+version = "0.2.0"
 description = "Replay watch functionality to PyKit"
 readme = "README.md"
 authors = [{ name = "Luke Maxwell", email = "luke@whsrobotics.org" }]
