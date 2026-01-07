@@ -54,7 +54,7 @@ class PyKitReplayWatch:
     def run(
         self,
         options: argparse.Namespace,  # pylint: disable=unused-argument
-        project_path: pathlib.Path,  # pylint: disable=unused-argument
+        project_path: pathlib.Path,
         robot_class: typing.Type[LoggedRobot],  # pylint: disable=unused-argument
     ):
 
@@ -92,7 +92,11 @@ class PyKitReplayWatch:
             PyKitReplayWatch.do_update = False
             print("[PyKit] Running replay...")
             # this is hacky, a real solution is needed for resetting environment
-            os.system("python -m robotpy sim --nogui")
+            os.system(
+                "python -m robotpy --main "
+                + str(project_path.resolve())
+                + " sim --nogui"
+            )
             print("[PyKit] replay finished...")
             while not PyKitReplayWatch.doUpdate():
                 time.sleep(1)
