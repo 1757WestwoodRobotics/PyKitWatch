@@ -5,11 +5,9 @@ import pathlib
 from tempfile import gettempdir
 import time
 import typing
+import wpilib
 from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
-
-
-from pykit.loggedrobot import LoggedRobot
 
 
 entry_points = importlib.metadata.entry_points
@@ -55,7 +53,7 @@ class PyKitReplayWatch:
         self,
         options: argparse.Namespace,  # pylint: disable=unused-argument
         project_path: pathlib.Path,
-        robot_class: typing.Type[LoggedRobot],  # pylint: disable=unused-argument
+        robot_class: typing.Type[wpilib.RobotBase],  # pylint: disable=unused-argument
     ):
 
         PyKitReplayWatch.do_update = False
